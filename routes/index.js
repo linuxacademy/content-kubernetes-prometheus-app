@@ -1,5 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var prometheus = require("prom-client");
+
+const comicbookTotal = new prometheus.Counter({
+  name: 'comicbook_total',
+  help: 'Total number of comicbook views',
+  labelNames: ['comicbook']
+})
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -65,5 +72,10 @@ router.get('/comicbooks', function(req, res, nex) {
   ]
   res.json(comicList);
 });
+
+router.get('/metrics', (req, res) => {
+  res.set('Content-Type', prometheus.register.contentType)
+  res.end(prometheus.register.metrics())
+})
 
 module.exports = router;
