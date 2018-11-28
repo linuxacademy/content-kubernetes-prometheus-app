@@ -5,7 +5,7 @@ metadata:
   annotations:
       prometheus.io/scrape: 'true'
       prometheus.io/path:   /
-      prometheus.io/port:   '8001'
+      prometheus.io/port:   '3000'
 spec:
   selector:
     app: comicbox
