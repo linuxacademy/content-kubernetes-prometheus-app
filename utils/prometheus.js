@@ -3,7 +3,6 @@ var Counter = require('prom-client').Counter;
 var Histogram = require('prom-client').Histogram;
 var Summary = require('prom-client').Summary;
 var ResponseTime = require('response-time');
-//var Logger = require('./logger');
 
 
 module.exports.numOfRequests = numOfRequests = new Counter({
@@ -25,7 +24,6 @@ module.exports.responses = responses = new Summary({
 });
 
 module.exports.startCollection = function () {
-    //Logger.log(Logger.LOG_INFO, `Starting the collection of metrics, the metrics are available on /metrics`);
     require('prom-client').collectDefaultMetrics();
 };
 
