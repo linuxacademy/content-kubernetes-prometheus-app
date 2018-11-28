@@ -1,4 +1,4 @@
-FROM nodejs:alpine
+FROM node:alpine
 RUN mkdir /var/node
 WORKDIR /var/node
 ADD . /var/node
