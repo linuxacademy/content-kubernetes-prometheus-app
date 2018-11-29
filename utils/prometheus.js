@@ -5,9 +5,9 @@ var Summary = require('prom-client').Summary;
 var ResponseTime = require('response-time');
 
 
-module.exports.numOfRequests = numOfRequests = new Counter({
-    name: 'numOfRequests',
-    help: 'Number of requests made',
+module.exports.totalNumOfRequests = totalNumOfRequests = new Counter({
+    name: 'totalNumOfRequests',
+    help: 'Total number of requests made',
     labelNames: ['method']
 });
 
@@ -29,7 +29,7 @@ module.exports.startCollection = function () {
 
 module.exports.requestCounters = function (req, res, next) {
     if (req.path != '/metrics') {
-        numOfRequests.inc({ method: req.method });
+        totalNumOfRequests.inc({ method: req.method });
         pathsTaken.inc({ path: req.path });
     }
     next();
