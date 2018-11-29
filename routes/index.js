@@ -10,12 +10,19 @@ const comicbookTotal = new prometheus.Counter({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  index = {
+    "api_name": "comicbox",
+    "api_version": "0.1.0"
+  }
+  res.json(index);
 });
 
 /* GET status */
 router.get('/status', function(req, res, nex) {
-  res.send("I am healthy");
+  status = {
+    "status": "I am healthy"
+  }
+  res.json(status);
 });
 
 /* GET comicbooks */
