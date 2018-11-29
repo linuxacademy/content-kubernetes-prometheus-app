@@ -83,6 +83,6 @@ router.get('/comicbooks', function(req, res, nex) {
 router.get('/metrics', (req, res) => {
   res.set('Content-Type', prometheus.register.contentType)
   res.end(prometheus.register.metrics())
-})
+});
 
 module.exports = router;
