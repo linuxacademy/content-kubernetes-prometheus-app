@@ -4,6 +4,7 @@ metadata:
   name: comicbox-service
   annotations:
       prometheus.io/scrape: 'true'
+      prometheus.io/path: 'swagger-stats/metrics'
       prometheus.io/port:   '3000'
 spec:
   selector:
@@ -26,6 +27,7 @@ spec:
         app: comicbox
       annotations:
             prometheus.io/scrape: "true"
+            prometheus.io/path: 'swagger-stats/metrics'
             prometheus.io/port: "3000"
     spec:
       containers:
