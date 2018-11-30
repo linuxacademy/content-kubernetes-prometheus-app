@@ -20,6 +20,7 @@
     "prom-client": "^11.2.0",
     "pug": "2.0.0-beta11",
     "response-time": "^2.3.2",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "~2.4.5",
+    "swagger-stats": "^0.95.6"
   }
 }

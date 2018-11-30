@@ -4,7 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var prometheus = require("./utils/prometheus");
+//var prometheus = require("./utils/prometheus");
+var swStats = require('swagger-stats');
+
+
 
 var index = require('./routes/index');
 
@@ -14,9 +17,10 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(prometheus.requestCounters);
+app.use(swStats.getMiddleware());
+/*app.use(prometheus.requestCounters);
 app.use(prometheus.responseCounters);
-app.use(prometheus.requestCounters);
+app.use(prometheus.requestCounters);*/
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -44,7 +48,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-prometheus.injectMetricsRoute(app);
-prometheus.startCollection();
+//prometheus.injectMetricsRoute(app);
+//prometheus.startCollection();
 
 module.exports = app;
