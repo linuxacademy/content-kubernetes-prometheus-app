@@ -9,10 +9,10 @@
     "node": "^10.13.0"
   },
   "dependencies": {
-    "body-parser": "~1.18.2",
+    "body-parser": "~1.20.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-prom-bundle": "^4.2.1",
     "logger": "0.0.1",
     "mime": "^2.4.0",
